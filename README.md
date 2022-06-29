@@ -8,7 +8,7 @@ I solved this problem by using docker technology and more specifically docker-co
 
 * Architecture of the test and production environments :
 
-![architecture_devops](https://user-images.githubusercontent.com/101942400/176453611-fd0e69b7-bf86-4178-8986-25265b694c50.png)
+![architecture_devopsvfin](https://user-images.githubusercontent.com/101942400/176454958-bb6292f2-a907-4c53-89ae-ad54a045ca73.png)
 
 ### tools.sh
 
