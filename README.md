@@ -2,6 +2,14 @@
 # Wordpress Devops Project
 
 The project aims to enable the deployment of a Wordpress containerised application running with its database service and its nginx reverse proxy server. This deployment is to be performed in two environments, a test environment and a production environment.
+
+## Usage
+
+1/ `./tools.sh` : to generate environments and deploy containers.  
+2/ `./run.sh` : to start the different containers in both environments.  
+3/ go to the browser and type http://locahost:80/ for the production environment wordpress site and on another page type http://locahost:8081/ for the test environment wordpress site. (I had to use port 8081 and not 8080 for the test environment as my home computer would not allow me to use port 8080, so you can change port 8081 by going to the `docker-compose.yml` file for the test environment and it will work).  
+4/ `./clean.sh`: stop all containers and clean up the volumes and complete directory cleanup.
+
 ## Solution
 
 I solved this problem by using docker technology and more specifically docker-compose. The solution will generate, with the help of the scripting tool tools.sh, our two test and production environments by deploying, in each of them, the user's Wordpress site through the implementation of three containers: a nginx container which will be used as a reverse proxy server, a wordpress service site container and a mysql database container. This deployment will be possible through the use of a docker-compose.yml configuration file that will be created in each environment.
