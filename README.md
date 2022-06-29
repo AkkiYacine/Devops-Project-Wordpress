@@ -50,7 +50,7 @@ volume used by the MySQL container :
 `volumes:`  
 `- ./db_data_wp/db_${DATABASE}:/var/lib/mysql`
 
-This container uses the host directory `./db_data_wp/db_${DATABASE}` to persist the data. The `${DATABASE}` is a variable that will take a different value depending on whether we are in the test or production environment.
+This container uses the host directory `./db_data_wp/db_${DATABASE}` to persist the data. The `${DATABASE}` is a variable that will take a different value depending on whether we are in the test or production environment. The MySQL container is also linked to the wordpress service container, the wordpress service uses the MySQL storage for its data. And the wordpress service is linked to the nginx container for data transfer and return requests.
 
 volume used by the wordpress container :  
 `volumes:`  
