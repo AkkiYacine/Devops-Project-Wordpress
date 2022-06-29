@@ -38,7 +38,7 @@ This file is generated using the tools.sh script and is edited differently for t
 I use a volume configuration in the docker-compose.yml files to persist the data of the different docker services and also make these volumes accessible for these services.
 
 volume used by the nginx container :  
-`volumes`  
+`volumes:`  
 `- ./nginx:/etc/nginx/conf.d`  
 `- ./wordpress_data/wordpress:/var/www/html`
 
@@ -47,13 +47,13 @@ It also uses the `./wordpress_data` directory where the files for the various st
 The client sends its request to the nginx proxy server. The nginx proxy server forwards the request to the wordpress service which will process the request and send its response back to the proxy server which in turn will send the response back to the client. The wordpress service will process the request and modify the `./wordpress_data` volume which the nginx server will access after receiving the request back from the wordpress service.
 
 volume used by the MySQL container :  
-`volumes`  
+`volumes:`  
 `- ./db_data_wp/db_${DATABASE}:/var/lib/mysql`
 
 This container uses the host directory `./db_data_wp/db_${DATABASE}` to persist the data. The `${DATABASE}` is a variable that will take a different value depending on whether we are in the test or production environment.
 
 volume used by the wordpress container :  
-`volumes`  
+`volumes:`  
 `- ./wordpress_data/wordpress:/var/www/html`
 
 The "./wordpress_data/wordpress" directory of the host will be processed and updated by the wordpress service after receiving requests from the nginx proxy server. After processing the request, the wordpress service will return its response to the proxy so that it can send the response back to the client.
