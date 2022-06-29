@@ -8,6 +8,8 @@ I solved this problem by using docker technology and more specifically docker-co
 
 * Architecture of the test and production environments :
 
+![architecture_devopsvfin](https://user-images.githubusercontent.com/101942400/176454958-bb6292f2-a907-4c53-89ae-ad54a045ca73.png)
+
 ### tools.sh
 
 The tools.sh script is the base script file for the solution, once executed it will generate our two test and production environments within two folders called wordpress-test and wordpress-prod.
