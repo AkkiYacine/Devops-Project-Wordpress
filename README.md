@@ -43,7 +43,8 @@ volume used by the nginx container :
 `- ./wordpress_data/wordpress:/var/www/html`
 
 The nginx container has access to the host `./nginx` folder so that it can use the proxy server configuration.
-It also uses the `./wordpress_data` directory where the files for the various static pages of the site are provided by the wordpress container and nginx uses it to render the static pages directly to the client. The request process is as follows:
+It also uses the `./wordpress_data` directory where the files for the various static pages of the site are provided by the wordpress container and nginx uses it to render the static pages directly to the client.I linked the nginx container to the wordpress volume for query optimization purposes. I made the choice to deliver the assets through nginx via the wordpress volume to optimize the requests because it didn't make sense for the nginx proxy to send a request to wordpress for static files that it can access directly via this volume. I could have passed everything to the wordpress container but it didn't make sense to me. So the nginx server will only send php requests to the wordpress fpm which can process them and send its response back to the nginx proxy server.   
+The request process is as follows:
 The client sends its request to the nginx proxy server. The nginx proxy server forwards the request to the wordpress service which will process the request and send its response back to the proxy server which in turn will send the response back to the client. The wordpress service will process the request and modify the `./wordpress_data` volume which the nginx server will access after receiving the request back from the wordpress service.
 
 volume used by the MySQL container :  
