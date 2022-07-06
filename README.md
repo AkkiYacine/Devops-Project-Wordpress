@@ -1,5 +1,5 @@
 
-# Wordpress Devops Project
+# Wordpress Devops Project - Akki Yacine
 
 The project aims to enable the deployment of a Wordpress containerised application running with its database service and its nginx reverse proxy server. This deployment is to be performed in two environments, a test environment and a production environment.
 
